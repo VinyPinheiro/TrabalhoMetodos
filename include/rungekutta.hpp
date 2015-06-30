@@ -14,7 +14,7 @@ private:
 	double f(double x, double y);
 	void calcX(double x, int index);
 	void calcY(double y, int index);
-	void calcK(double x, double y, int index);
+	void calcK(int index);
 	
 public:
 	double rungeKutta4(double x, double y, double h);
