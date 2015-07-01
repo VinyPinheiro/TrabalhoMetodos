@@ -1,32 +1,35 @@
+/*Implementação da Classe RungeKutta*/
 #include "rungekutta.hpp"
 
+/*Metodo que calcula os valores da função*/
 double
 RungeKutta::f(double x, double y)
 {
-	/*std::cout<<"f(x,y): " << x-2*y+1  << std::endl;*/
-	return x - 2 * y + 1;
+	return  -0.4377*(x + 5);
 }
 
+/*Metodo que calcula o valor de x*/
 void 
 RungeKutta::calcX(double x, int index)
 {
 	this->x = (index != 2) ? x + this->h/2 : x + this->h;
 }
 
+/*Metodo que calcula o valor de y*/
 void
 RungeKutta::calcY(double y, int index)
 {
 	this->y = (index != 2) ? y + this->h/2 * k[index] : y + this->h * k[index];
 }
+
+/*Metodo que calcula o valor de cada K, o parametro index, é o indice do k a ser calculado*/
 void
 RungeKutta::calcK(int index)
 {
-	/*std::cout << "x["<<index+1<< "]=" << x <<std::endl;
-	std::cout << "y["<<index+1<< "]=" << y <<std::endl;*/
 	k[index] = f(this->x,this->y);
-	/*std::cout << "k["<<index+1<< "]=" << this->k[index]<<std::endl<<std::endl;*/
 }
 
+/*Metodo principal que calcula o resultado da edo*/
 double
 RungeKutta::rungeKutta4(double x, double y, double passo)
 {
@@ -42,14 +45,12 @@ RungeKutta::rungeKutta4(double x, double y, double passo)
 	
 	for (int i = 0; i < 3; i++)
 	{
-		//std::cout << "x = " << this->x << " y = " << this->y <<std::endl;
 		calcK(i);
 		
 		if(!(i % 2))
 			calcX(tempX, i);
 		
 		calcY(tempY,i);
-		//std::cout << "x = " << this->x << " y = " << this->y <<std::endl;
 	}
 	
 	calcK(3);

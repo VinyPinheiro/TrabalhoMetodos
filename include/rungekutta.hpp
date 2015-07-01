@@ -1,7 +1,9 @@
+/*Assinatura da Classe RungeKutta com todos os atributos e metodos*/
 #ifndef RUNGEKUTTA_H
 #define RUNGEKUTTA_H
 
 #include <iostream>
+#include <cmath>
 
 class RungeKutta
 {
