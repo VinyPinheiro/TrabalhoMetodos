@@ -38,16 +38,16 @@ RungeKutta::rungeKutta4(double x, double y, double passo)
 	this->x = x;
 	this->y = y;
 	
-	tempX = x;
+	tempX = x; //Armazena os x e y temporarios
 	tempY = y;
 	
-	this->h = passo;
+	this->h = passo;//Armazena o passo
 	
 	for (int i = 0; i < 3; i++)
 	{
 		calcK(i);
 		
-		if(!(i % 2))
+		if(!(i % 2)) //caso o i for par, calcula o valor de X, ja que deve ser calculado x na iteração 1
 			calcX(tempX, i);
 		
 		calcY(tempY,i);
@@ -55,5 +55,5 @@ RungeKutta::rungeKutta4(double x, double y, double passo)
 	
 	calcK(3);
 	
-	return tempY + h / 6.0 * (k[0] + 2 * (k[1] + k[2]) + k[3]);
+	return tempY + h / 6.0 * (k[0] + 2 * (k[1] + k[2]) + k[3]); //retorna o resultado
 }
