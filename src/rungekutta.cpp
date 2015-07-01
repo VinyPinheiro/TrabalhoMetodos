@@ -5,7 +5,7 @@
 double
 RungeKutta::f(double x, double y)
 {
-	return  -0.4377*(x + 5);
+	return  -0.5924*(x + 5);
 }
 
 /*Metodo que calcula o valor de x*/
